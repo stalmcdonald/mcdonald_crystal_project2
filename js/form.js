@@ -1,8 +1,8 @@
 //Crystal McDonald
-//Mobile Interfaces and Usability (MiU)
+//Visual Frameworks (VFW)
 //Full Sail University
-//November 10, 2011
-//Project 3
+//October 19, 2011
+//Project 4
 
 //Wait until the DOM is ready.
 window.addEventListener("DOMContentLoaded", function() {
@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	}	
 	
 	//Variable defaults array for drop down menu
-	var addGuest = ["--Choose A Guest--","Family","Friend","Work","VIP","Other"];
+	var addGuest = ["--Choose A Theme--","Mad Hatter","High Tea","Renaissance","Fairy Tea","Classic Tea", "Other"];
 	var attendValue = "";
 	var rsvpValue = "No";
 	var errMsg = $('errors');
@@ -137,13 +137,13 @@ window.addEventListener("DOMContentLoaded", function() {
 	
 		//Group Validation
 		if(getGuest.value==="--Choose A Guest--") {
-			var guestError = "*Please Choose a Guest.";
+			var guestError = "Please Choose a Theme.";
 			getGuest.style.border = "1px solid red";
 			messageAry.push(guestError);
 		}
 		//first name validation
 		if(getfname.value ==="") {	
-			var fNameError = "*Please enter a first name.";	
+			var fNameError = "Please enter an Event Name.";	
 			getfname.style.border = "1px solid red";
 			messageAry.push(fNameError);
 		}
@@ -151,7 +151,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	    //last name validation
 		if(getlname.value ==="") {
 	
-			var lNameError = "*Please enter a last name.";
+			var lNameError = "Please enter a Venue Name.";
 			getlname.style.border = "1px solid red";
 			messageAry.push(lNameError);
 	}
@@ -223,10 +223,10 @@ window.addEventListener("DOMContentLoaded", function() {
 		var ask = confirm("Are you sure you want to delete Guest?");
 		if(ask){
 			localStorage.removeItem(this.key);
-			alert("Guest was deleted.");
+			alert("Event was deleted.");
 			window.location.reload();
 		}else{
-			alert("Guest was NOT deleted.");
+			alert("Event was NOT deleted.");
 		}
 	}	
 		
@@ -235,7 +235,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		var editLink = document.createElement('a');
 	    editLink.href = "#";
 		editLink.key = key;//property created to edit link function
-		var editText = "Edit Guest";
+		var editText = "Edit Event";
 		editLink.addEventListener("click", editItem);
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
@@ -248,7 +248,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		var deleteLink = document.createElement('a');
 		deleteLink.href = "#";
 		deleteLink.key = key;
-		var deleteText = "Delete Guest";
+		var deleteText = "Delete Event";
 		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
@@ -545,15 +545,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	displayLink.addEventListener("click", getData);
 	clearLink.addEventListener("click", clearLocal);
 	save.addEventListener("click", validate);
-	
-	/*
-$(document).ready(function(){
-		var fform = $('#foodform')
 		
-		fform.validate(); 
-	
-	});
-*/	
 		
 //ensures nothing will run until DOM content is loaded.
 });
